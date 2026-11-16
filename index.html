@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>مسابقة نوفمبر المجيد 2026 | مدرسة محمد بن القاسم الثقفي (٥-١٠)</title>
+  <style>
+    :root {
+      --oman-red: #db161b;
+      --oman-red-dark: #a80d11;
+      --oman-green: #008000;
+      --oman-green-dark: #005a2b;
+      --oman-gold: #c89d3c;
+      --oman-gold-light: #f9f1dc;
+      --bg-page: #f3f6f4;
+      --card-bg: #ffffff;
+      --text-main: #1a2421;
+      --text-muted: #52635d;
+      --border-color: #d6e2dc;
+      --shadow-card: 0 10px 30px rgba(0, 60, 30, 0.08);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, 'Noto Sans Arabic', Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      background-image:
+        radial-gradient(circle at top right, rgba(0, 128, 0, 0.06), transparent 40%),
+        radial-gradient(circle at bottom left, rgba(219, 22, 27, 0.06), transparent 40%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    .flag-stripe {
+      height: 7px;
+      width: 100%;
+      background: linear-gradient(to left, var(--oman-green) 0%, var(--oman-green) 33.3%, #ffffff 33.3%, #ffffff 66.6%, var(--oman-red) 66.6%, var(--oman-red) 100%);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+
+    .official-header {
+      background: linear-gradient(135deg, #004d25 0%, #006b35 60%, #004220 100%);
+      color: #ffffff;
+      padding: 20px 16px 28px;
+      text-align: center;
+      position: relative;
+      border-bottom: 4px solid var(--oman-gold);
+    }
+
+    .settings-trigger {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background 0.2s;
+    }
+
+    .settings-trigger:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .emblem-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      border: 2px solid var(--oman-gold);
+      margin-bottom: 10px;
+      font-size: 26px;
+    }
+
+    .ministry-info {
+      font-size: 13.5px;
+      color: #e6f2ec;
+      line-height: 1.7;
+    }
+
+    .school-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffdf8e;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .school-subtitle {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #ffeab3;
+      line-height: 1.4;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 640px;
+      margin: -18px auto 32px;
+      padding: 0 14px;
+      flex: 1;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .card-banner {
+      background: linear-gradient(120deg, var(--oman-red-dark), var(--oman-red));
+      color: #ffffff;
+      padding: 22px 18px;
+      text-align: center;
+    }
+
+    .card-banner h1 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .banner-sub {
+      font-size: 16.5px;
+      font-weight: 700;
+      line-height: 1.6;
+      color: #ffffff;
+    }
+
+    .card-body {
+      padding: 22px 18px;
+    }
+
+    .info-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .badge-box {
+      padding: 11px 14px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .badge-patron {
+      background-color: var(--oman-gold-light);
+      color: #6b4e0e;
+      border: 1px solid #e6cf95;
+    }
+
+    .badge-draw {
+      background-color: #eaf6ef;
+      color: var(--oman-green-dark);
+      border: 1px solid #bce0cb;
+    }
+
+    .section-heading {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--oman-green-dark);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #edf3ef;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 480px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .req {
+      color: var(--oman-red);
+    }
+
+    input[type="text"],
+    input[type="url"],
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 15px;
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background-color: #fafcfb;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--oman-green);
+      background-color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(0, 128, 0, 0.12);
+    }
+
+    .error-text {
+      color: var(--oman-red);
+      font-size: 12.5px;
+      margin-top: 5px;
+      display: none;
+      font-weight: 600;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px 20px;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.1s, background 0.2s;
+    }
+
+    .btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--oman-green) 0%, var(--oman-green-dark) 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 90, 43, 0.25);
+      margin-top: 8px;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--oman-red) 0%, var(--oman-red-dark) 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(219, 22, 27, 0.25);
+      margin-top: 12px;
+    }
+
+    .btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    .student-bar {
+      background: #f0f7f3;
+      border: 1px solid #cde0d5;
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .student-meta {
+      font-size: 13.5px;
+      color: var(--oman-green-dark);
+      font-weight: 700;
+    }
+
+    .btn-edit {
+      background: #ffffff;
+      color: var(--oman-green-dark);
+      border: 1px solid #b5d1c1;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .question-box {
+      background: #fbfdfc;
+      border: 1.5px solid #e1ebe5;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+
+    .question-title {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .q-num {
+      background: var(--oman-green-dark);
+      color: #ffffff;
+      min-width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 14px;
+      background: #ffffff;
+      border: 1.5px solid var(--border-color);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .option-item input[type="radio"] {
+      accent-color: var(--oman-green);
+      width: 18px;
+      height: 18px;
+    }
+
+    .option-item.selected {
+      border-color: var(--oman-green);
+      background: #e9f6ee;
+      color: var(--oman-green-dark);
+    }
+
+    .locked-screen {
+      text-align: center;
+      padding: 34px 20px;
+    }
+
+    .check-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #e6f5ec;
+      color: var(--oman-green);
+      border: 3px solid var(--oman-green);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .locked-screen h2 {
+      font-size: 21px;
+      color: var(--oman-green-dark);
+      margin-bottom: 10px;
+    }
+
+    .locked-screen p {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin: 0 auto 14px;
+    }
+
+    .locked-note {
+      display: inline-block;
+      background: var(--oman-gold-light);
+      color: #6b4e0e;
+      border: 1px solid #e6cf95;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 1000;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 460px;
+      padding: 22px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5ece8;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    .modal-header h3 {
+      font-size: 17px;
+      color: var(--oman-green-dark);
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .teacher-credit-box {
+      background: #f2f7f4;
+      border: 1px solid #cfe0d6;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--oman-green-dark);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .btn-secondary {
+      background: #eef3f0;
+      color: var(--text-main);
+      border: 1px solid #cfdcd5;
+      font-size: 14px;
+      padding: 11px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    footer {
+      text-align: center;
+      padding: 14px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="flag-stripe"></div>
+
+  <header class="official-header">
+    <button type="button" class="settings-trigger" id="openSettingsBtn" title="إعدادات المسابقة">⚙️</button>
+    <div class="emblem-badge">🇴🇲</div>
+    <div class="ministry-info">
+      <div>سلطنة عُمان</div>
+      <div>وزارة التعليم</div>
+      <div>المديرية العامة للتعليم بمحافظة ظفار</div>
+    </div>
+    <div class="school-title">مدرسة محمد بن القاسم الثقفي</div>
+    <div class="school-subtitle">للتعليم الأساسي (٥ - ١٠)</div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <div class="card-banner">
+        <h1>مسابقة «نوفمبر المجيد 2026»</h1>
+        <div class="banner-sub">
+          <div>احتفالاً بالعيد الوطني المجيد</div>
+          <div>مخصصة لطلبة المدرسة</div>
+        </div>
+      </div>
+
+      <!-- المرحلة الأولى: واجهة دخول الطالب -->
+      <div class="card-body" id="stepEntry">
+        <div class="info-badges">
+          <div class="badge-box badge-patron">
+            <span>🎖️</span>
+            <span>برعاية الفاضل مدير المدرسة / أستاذ أحمد كشوب</span>
+          </div>
+          <div class="badge-box badge-draw">
+            <span>🎁</span>
+            <span>سيتم السحب على أصحاب الإجابات الصحيحة</span>
+          </div>
+        </div>
+
+        <div class="section-heading">أدخل بياناتك لعرض أسئلة المسابقة</div>
+
+        <div class="form-group">
+          <label for="studentName">اسم الطالب بالكامل <span class="req">*</span></label>
+          <input type="text" id="studentName" placeholder="اكتب اسمك الثلاثي أو الرباعي" autocomplete="name" />
+          <div class="error-text" id="errName">يرجى كتابة اسم الطالب بالكامل (ثلاثياً على الأقل).</div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="studentGrade">الصف الدراسي <span class="req">*</span></label>
+            <select id="studentGrade">
+              <option value="">-- اختر الصف --</option>
+              <option value="الصف الخامس">الصف الخامس</option>
+              <option value="الصف السادس">الصف السادس</option>
+              <option value="الصف السابع">الصف السابع</option>
+              <option value="الصف الثامن">الصف الثامن</option>
+              <option value="الصف التاسع">الصف التاسع</option>
+              <option value="الصف العاشر">الصف العاشر</option>
+            </select>
+            <div class="error-text" id="errGrade">يرجى اختيار الصف الدراسي.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="studentSection">الشعبة <span class="req">*</span></label>
+            <select id="studentSection">
+              <option value="">-- اختر الشعبة --</option>
+              <option value="١">١</option>
+              <option value="٢">٢</option>
+              <option value="٣">٣</option>
+              <option value="٤">٤</option>
+              <option value="٥">٥</option>
+              <option value="٦">٦</option>
+            </select>
+            <div class="error-text" id="errSection">يرجى اختيار الشعبة.</div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="enterQuizBtn">
+          <span>دخول وعرض أسئلة المسابقة</span>
+          <span>⬅</span>
+        </button>
+      </div>
+
+      <!-- المرحلة الثانية: صفحة الأسئلة -->
+      <div class="card-body hidden" id="stepQuestions">
+        <div class="student-bar">
+          <div class="student-meta" id="displayStudentInfo"></div>
+          <button type="button" class="btn-edit" id="editInfoBtn">تعديل البيانات</button>
+        </div>
+
+        <!-- السؤال الأول -->
+        <div class="question-box">
+          <div class="question-title">
+            <span class="q-num">١</span>
+            <span>يتكون شعار سلطنة عُمان الرسمي من:</span>
+          </div>
+          <div class="options-list">
+            <label class="option-item">
+              <input type="radio" name="q1" value="أ) نخلة وخنجر وسيفين متقاطعين" />
+              <span>أ) نخلة وخنجر وسيفين متقاطعين</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="q1" value="ب) خنجر وسيفين متقاطعين" />
+              <span>ب) خنجر وسيفين متقاطعين</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="q1" value="ج) قلعة تاريخية يتوسطها خنجر" />
+              <span>ج) قلعة تاريخية يتوسطها خنجر</span>
+            </label>
+          </div>
+          <div class="error-text" id="errQ1">يرجى اختيار إجابة للسؤال الأول.</div>
+        </div>
+
+        <!-- السؤال الثاني -->
+        <div class="question-box">
+          <div class="question-title">
+            <span class="q-num">٢</span>
+            <span>تحتفل سلطنة عُمان باليوم الوطني المجيد في شهر نوفمبر من كل عام، وتحديداً في يوم:</span>
+          </div>
+          <div class="options-list">
+            <label class="option-item">
+              <input type="radio" name="q2" value="أ) 16 نوفمبر" />
+              <span>أ) 16 نوفمبر</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="q2" value="ب) 18 نوفمبر" />
+              <span>ب) 18 نوفمبر</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="q2" value="ج) 20 نوفمبر" />
+              <span>ج) 20 نوفمبر</span>
+            </label>
+          </div>
+          <div class="error-text" id="errQ2">يرجى اختيار إجابة للسؤال الثاني.</div>
+        </div>
+
+        <!-- السؤال الثالث -->
+        <div class="question-box">
+          <div class="question-title">
+            <span class="q-num">٣</span>
+            <span>وفقاً لرؤية عُمان 2040، ما الأداء المستهدف لمؤشّر الابتكار العالمي في سلطنة عُمان بحلول عام 2040م؟</span>
+          </div>
+          <div class="options-list">
+            <label class="option-item">
+              <input type="radio" name="q3" value="أ- من أفضل 10 دول" />
+              <span>أ- من أفضل 10 دول</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="q3" value="ب- من أفضل 20 دولة" />
+              <span>ب- من أفضل 20 دولة</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="q3" value="ج- من أفضل 30 دولة" />
+              <span>ج- من أفضل 30 دولة</span>
+            </label>
+          </div>
+          <div class="error-text" id="errQ3">يرجى اختيار إجابة للسؤال الثالث.</div>
+        </div>
+
+        <button type="button" class="btn btn-submit" id="submitAnswersBtn">
+          <span>إرسال الإجابات واعتماد المشاركة</span>
+          <span>✔</span>
+        </button>
+      </div>
+
+      <!-- المرحلة الثالثة: شاشة تأكيد الاستلام والقفل الدائم -->
+      <div class="card-body locked-screen hidden" id="stepLocked">
+        <div class="check-circle">✔</div>
+        <h2>تم استلام واعتماد مشاركتك بنجاح</h2>
+        <p>شكراً لمشاركتك في مسابقة «نوفمبر المجيد 2026» بمدرسة محمد بن القاسم الثقفي للتعليم الأساسي (٥ - ١٠).</p>
+        <div class="locked-note">تم تسجيل المشاركة مسبقاً على هذا الجهاز ولا يمكن التقديم مرة أخرى.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    كل عام وعُمان وقائدها المفدى وشعبها الأبي بألف خير • نوفمبر 2026م
+  </footer>
+
+  <!-- نافذة إعدادات المعلم -->
+  <div class="modal-backdrop" id="settingsModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>⚙️ إعدادات الربط والإدارة</h3>
+        <button type="button" class="close-btn" id="closeSettingsBtn">&times;</button>
+      </div>
+
+      <div class="teacher-credit-box">
+        إعداد وتنفيذ المسابقة: أ/ عماد جابر
+      </div>
+
+      <div class="form-group">
+        <label for="scriptUrlInput">رابط Google Apps Script (Web App URL):</label>
+        <input type="url" id="scriptUrlInput" placeholder="https://script.google.com/macros/s/.../exec" dir="ltr" />
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-primary" id="saveUrlBtn">حفظ الرابط</button>
+        <button type="button" class="btn btn-secondary" id="testConnectionBtn">اختبار إرسال سطر تجريبي للشيت</button>
+        <button type="button" class="btn btn-secondary" id="resetLockBtn">إعادة تعيين قفل المشاركة (للتجربة فقط)</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz8XZ7AvilJaJ71-zgFNB-nvtK6XVvTO6X2pum8NcBsdS0iQYYJIkqKJtWN5nY6Imit2A/exec";
+
+      var STORAGE_LOCK_KEY = "mbq_nov2026_submitted_v4";
+      var STORAGE_URL_KEY = "mbq_nov2026_script_url_v4";
+
+      var stepEntry = document.getElementById("stepEntry");
+      var stepQuestions = document.getElementById("stepQuestions");
+      var stepLocked = document.getElementById("stepLocked");
+
+      var studentNameInput = document.getElementById("studentName");
+      var studentGradeInput = document.getElementById("studentGrade");
+      var studentSectionInput = document.getElementById("studentSection");
+
+      var enterQuizBtn = document.getElementById("enterQuizBtn");
+      var editInfoBtn = document.getElementById("editInfoBtn");
+      var submitAnswersBtn = document.getElementById("submitAnswersBtn");
+      var displayStudentInfo = document.getElementById("displayStudentInfo");
+
+      var settingsModal = document.getElementById("settingsModal");
+      var openSettingsBtn = document.getElementById("openSettingsBtn");
+      var closeSettingsBtn = document.getElementById("closeSettingsBtn");
+      var scriptUrlInput = document.getElementById("scriptUrlInput");
+      var saveUrlBtn = document.getElementById("saveUrlBtn");
+      var testConnectionBtn = document.getElementById("testConnectionBtn");
+      var resetLockBtn = document.getElementById("resetLockBtn");
+
+      function checkLockState() {
+        if (localStorage.getItem(STORAGE_LOCK_KEY) === "true") {
+          stepEntry.classList.add("hidden");
+          stepQuestions.classList.add("hidden");
+          stepLocked.classList.remove("hidden");
+        } else {
+          stepLocked.classList.add("hidden");
+          stepQuestions.classList.add("hidden");
+          stepEntry.classList.remove("hidden");
+        }
+      }
+
+      function getActiveUrl() {
+        var saved = (localStorage.getItem(STORAGE_URL_KEY) || "").trim();
+        if (saved && saved.indexOf("https://") === 0) return saved;
+        if (SHEET_WEB_APP_URL && SHEET_WEB_APP_URL.indexOf("https://") === 0) return SHEET_WEB_APP_URL.trim();
+        return "";
+      }
+
+      function sendToGoogleSheet(payload, onDone) {
+        var url = getActiveUrl();
+        if (!url) {
+          onDone(false);
+          return;
+        }
+
+        fetch(url, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify(payload)
+        })
+          .then(function () {
+            onDone(true);
+          })
+          .catch(function () {
+            onDone(false);
+          });
+      }
+
+      document.querySelectorAll('input[type="radio"]').forEach(function (radio) {
+        radio.addEventListener("change", function () {
+          var groupName = this.name;
+          document.querySelectorAll('input[name="' + groupName + '"]').forEach(function (r) {
+            r.closest(".option-item").classList.remove("selected");
+          });
+          this.closest(".option-item").classList.add("selected");
+        });
+      });
+
+      enterQuizBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var nameVal = studentNameInput.value.trim();
+        var gradeVal = studentGradeInput.value;
+        var sectionVal = studentSectionInput.value;
+
+        var valid = true;
+
+        if (nameVal.split(/\s+/).length < 2 || nameVal.length < 5) {
+          document.getElementById("errName").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("errName").style.display = "none";
+        }
+
+        if (!gradeVal) {
+          document.getElementById("errGrade").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("errGrade").style.display = "none";
+        }
+
+        if (!sectionVal) {
+          document.getElementById("errSection").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("errSection").style.display = "none";
+        }
+
+        if (!valid) return;
+
+        displayStudentInfo.textContent = "الطالب: " + nameVal + " | " + gradeVal + " / " + sectionVal;
+        stepEntry.classList.add("hidden");
+        stepQuestions.classList.remove("hidden");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      editInfoBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        stepQuestions.classList.add("hidden");
+        stepEntry.classList.remove("hidden");
+      });
+
+      submitAnswersBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var q1El = document.querySelector('input[name="q1"]:checked');
+        var q2El = document.querySelector('input[name="q2"]:checked');
+        var q3El = document.querySelector('input[name="q3"]:checked');
+
+        var valid = true;
+
+        if (!q1El) {
+          document.getElementById("errQ1").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("errQ1").style.display = "none";
+        }
+
+        if (!q2El) {
+          document.getElementById("errQ2").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("errQ2").style.display = "none";
+        }
+
+        if (!q3El) {
+          document.getElementById("errQ3").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("errQ3").style.display = "none";
+        }
+
+        if (!valid) return;
+
+        submitAnswersBtn.disabled = true;
+        submitAnswersBtn.innerHTML = "<span>جاري اعتماد وإرسال الإجابات...</span>";
+
+        var payload = {
+          name: studentNameInput.value.trim(),
+          grade: studentGradeInput.value,
+          section: studentSectionInput.value,
+          q1: q1El.value,
+          q2: q2El.value,
+          q3: q3El.value
+        };
+
+        sendToGoogleSheet(payload, function () {
+          localStorage.setItem(STORAGE_LOCK_KEY, "true");
+          stepQuestions.classList.add("hidden");
+          stepLocked.classList.remove("hidden");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+
+      openSettingsBtn.addEventListener("click", function () {
+        scriptUrlInput.value = getActiveUrl();
+        settingsModal.style.display = "flex";
+      });
+
+      closeSettingsBtn.addEventListener("click", function () {
+        settingsModal.style.display = "none";
+      });
+
+      settingsModal.addEventListener("click", function (e) {
+        if (e.target === settingsModal) {
+          settingsModal.style.display = "none";
+        }
+      });
+
+      saveUrlBtn.addEventListener("click", function () {
+        var url = scriptUrlInput.value.trim();
+        localStorage.setItem(STORAGE_URL_KEY, url);
+        alert("تم حفظ الرابط بنجاح.");
+      });
+
+      testConnectionBtn.addEventListener("click", function () {
+        var url = scriptUrlInput.value.trim() || getActiveUrl();
+        if (!url || url.indexOf("https://") !== 0) {
+          alert("يرجى إدخال رابط Web App الصحيح أولاً.");
+          return;
+        }
+        localStorage.setItem(STORAGE_URL_KEY, url);
+        testConnectionBtn.disabled = true;
+        testConnectionBtn.textContent = "جاري إرسال سطر تجريبي...";
+
+        sendToGoogleSheet({
+          name: "اختبار الربط (تجريبي)",
+          grade: "الصف الثامن",
+          section: "١",
+          q1: "ب) خنجر وسيفين متقاطعين",
+          q2: "ج) 20 نوفمبر",
+          q3: "ب- من أفضل 20 دولة"
+        }, function () {
+          testConnectionBtn.disabled = false;
+          testConnectionBtn.textContent = "اختبار إرسال سطر تجريبي للشيت";
+          alert("تم إرسال الطلب التجريبي! افتح الشيت الآن وتأكد من ظهور صف جديد.");
+        });
+      });
+
+      resetLockBtn.addEventListener("click", function () {
+        localStorage.removeItem(STORAGE_LOCK_KEY);
+        alert("تم فك القفل عن هذا الجهاز بنجاح.");
+        settingsModal.style.display = "none";
+        checkLockState();
+      });
+
+      checkLockState();
+    })();
+  </script>
+</body>
+</html>
